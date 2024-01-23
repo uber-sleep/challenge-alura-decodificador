@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;}
+
+:root {
+    --Gray-gray-500: #343A40;
+    --Gray-gray-400: #495057;
+    --Dark-blue-dark-blue-300: #0A3871;
+    --Light-blue-light-blue-100: #F3F5FC;
+    --White: #FFF;
+
+
+
+
+
+}
+
+body {
+    margin: 40px;
+    background-color: var(--Light-blue-light-blue-100);
+}
+
+header {
+    margin: 20px 0;
+}
+
+header.logo{
+    width: 375px;
+    height: 96px;
+    flex-shrink: 0;
+}
+
+textarea#text-input {
+    width: 100%;
+    padding: 10px;
+    border: transparent;
+    color: var(--Dark-blue-dark-blue-300);
+    background-color: var(--Light-blue-light-blue-100);
+    font-size: 32px;
+    font-weight: 400;
+}
+
+textarea#text-input::placeholder {
+    color: var(--Dark-blue-dark-blue-300);
+    font-size: 32px;
+    font-weight: 400;
+}
+
+section#messages.inactive {
+    border-radius: 32px;
+    background: var(--White, #FFF);
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    margin: 32px 0;
+    padding: 28px 18px;    
+    width: 100%;
+}
+
+section#messages.inactive h2{
+    color: var(--Gray-gray-500);
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; 
+    padding-bottom: 10px; 
+}
+section#messages.inactive p{
+    color: var(--Gray-gray-400, #495057);
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; 
+}
+
+section#messages.active{
+    display: grid;
+    width: 100%;
+    padding: 32px;
+    align-items: flex-start;
+    gap: 32px;
+
+    border-radius: 32px;
+    background: var(--White, #FFF);
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+}
+
+h2#output {
+    color: var(--Gray-gray-400);
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; 
+}
+
+button#copiar-btn {
+    display: grid;
+    padding: 24px;
+    gap: 8px;
+
+    border-radius: 24px;
+    border: 1px solid var(--Dark-blue-dark-blue-300, #0A3871);
+    background-color: var(--White);
+    color: var(--Dark-blue-dark-blue-300);
+}

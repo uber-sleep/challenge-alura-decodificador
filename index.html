@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decodificador</title>
+    <link rel="stylesheet" href="./styles.css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <img src="./assets/Top.svg" alt="Logotipo da alura: um a minuscúlo">
+        </div>
+    </header>
+
+    <main>
+        <textarea name="input" id="text-input" cols="30" rows="10" placeholder="Digite seu texto"></textarea>
+        <p class="warning">Apenas letras minúsculas e sem acentos.</p>
+        <button id="criptografar-btn">Criptografar</button>
+        <button id="descriptografar-btn">Descriptografar</button>
+
+        <section id="messages" class="active">
+            <!-- <h2>Nenhuma mensagem encontrada</h2>
+            <p>Digite um texto que você deseja criptografar ou descriptografar.</p> -->
+            <h2 id="output">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis libero ratione sequi dicta ipsa illo, itaque cumque assumenda expedita fuga.</h2>
+            <button id="copiar-btn">Copiar</button>
+        </section>
+    </main>
+    <footer></footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
