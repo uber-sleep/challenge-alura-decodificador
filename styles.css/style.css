@@ -48,38 +48,63 @@ textarea#text-input::placeholder {
     font-weight: 400;
 }
 
-section#messages.inactive {
-    border-radius: 32px;
-    background: var(--White, #FFF);
-    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
-    margin: 32px 0;
-    padding: 28px 18px;    
-    width: 100%;
-}
-
-section#messages.inactive h2{
-    color: var(--Gray-gray-500);
-    text-align: center;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%; 
-    padding-bottom: 10px; 
-}
-section#messages.inactive p{
-    color: var(--Gray-gray-400, #495057);
-    text-align: center;
+p#warning {
+    color: var(--Gray-gray-500, #343A40);
     font-family: Inter;
-    font-size: 16px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%; 
+    display: flex;
+    margin: 18px 0;
 }
+
+img#warning-icon {
+    margin: 0 1rem;
+    width: 16px;
+    height: 16px;
+}
+
+button#criptografar-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    margin-bottom: 18px;
+    color: var(--White);
+
+    border-radius: 24px;
+    background: var(--Dark-blue-dark-blue-300, #0A3871);
+}
+
+button#descriptografar-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    color: var(--Dark-blue-dark-blue-300);
+
+    border-radius: 24px;
+    border: 1px solid var(--Dark-blue-dark-blue-300, #0A3871);
+}
+
+section#messages.inactive {
+    display: none;
+}
+
+/* 
+section#messages.inactive h2{
+    display: none;
+}
+section#messages.inactive p{
+    display: none;
+} */
 
 section#messages.active{
     display: grid;
     width: 100%;
     padding: 32px;
+    margin-top: 64px;
     align-items: flex-start;
     gap: 32px;
 
@@ -88,7 +113,11 @@ section#messages.active{
     box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
 }
 
-h2#output {
+section#messages.active p{
+    display: none;
+}
+
+h2.active {
     color: var(--Gray-gray-400);
     font-family: Inter;
     font-size: 24px;
@@ -97,7 +126,7 @@ h2#output {
     line-height: 150%; 
 }
 
-button#copiar-btn {
+button.active {
     display: grid;
     padding: 24px;
     gap: 8px;
