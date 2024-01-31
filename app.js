@@ -8,8 +8,6 @@ let criptoBtn = htmlElemnts('#criptografar-btn');
 let descriptoBtn = htmlElemnts('#descriptografar-btn');
 let sectionMsg = htmlElemnts('#messages');
 
-// validityCheck();
-
 // Ciptografar
 criptoBtn.addEventListener('click', (event) => {
     let encryptedInput = encrypt();
@@ -40,36 +38,56 @@ criptoBtn.addEventListener('click', (event) => {
 
 });
 
+// Descriptografar
+descriptoBtn.addEventListener('click', (event) => {
+    decryptInput = decrypt();
+    console.log(decryptInput);
+    clearingElements()
+    if (input.value !== ''){
+    // Criando elementos
+    let sectionMsgH2 = document.createElement('h2');
+    sectionMsgH2.textContent = decryptInput;
+    let sectionMsgBtn = document.createElement('button');
+    sectionMsgBtn.innerHTML = 'Copiar';
+
+    // Configurando classes
+    sectionMsg.classList.remove('inactive');
+    sectionMsg.classList.add('active');
+    sectionMsgH2.classList.add('active');
+    sectionMsgBtn.classList.add('active')
+    
+    //Appending elementos
+    sectionMsg.appendChild(sectionMsgH2); 
+    sectionMsg.appendChild(sectionMsgBtn);
+
+    // Limpando input
+    input.value = '';
+    } else {
+    sectionMsg.classList.remove('active');
+    sectionMsg.classList.add('inactive');
+    };
+});
+
 // Encriptando
 let encrypt = () => {
     const originalInput = input.value;
-    let inputResult = '';
 
-    for( let i = 0; i < originalInput.length; i++) {
-        let char = input.value[i];
+    return originalInput.replace(/e/g, 'enter')
+                        .replace(/i/g, 'imes')
+                        .replace(/o/g, 'ober')
+                        .replace(/u/g, 'ufat')
+                        .replace(/a/g, 'ai');
+};
 
-        switch (char) {
-            case 'a':
-                inputResult += 'ai';
-                break;
-            case 'e':
-                inputResult += 'enter';
-                break;
-            case 'i':
-                inputResult += 'imes';
-                break;
-            case 'o':
-                inputResult += 'ober';
-                break;
-            case 'u':
-                inputResult += 'ufat';
-                break;
-            default:
-                inputResult += char; 
-                break;
-        };
-    };
-    return inputResult;
+// Descriptando
+let decrypt = () => {
+    const originalInput = input.value;
+
+    return originalInput.replace(/ai/g, 'a')
+                        .replace(/enter/g, 'e')
+                        .replace(/imes/g, 'i')
+                        .replace(/ober/g, 'o')
+                        .replace(/ufat/g, 'u');
 };
 
 // Clearing elemnts
