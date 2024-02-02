@@ -36,7 +36,7 @@ criptoBtn.addEventListener('click', (event) => {
         if (sectionMsgBtn) {
             sectionMsgBtn.addEventListener("click", async ()=> {
                 try {
-                    let copyText = document.querySelector('h2');
+                    let copyText = document.querySelector('h2.active');
                     await navigator.clipboard.writeText(copyText.textContent);
                 } catch (err) {
                     console.error("Ocorreu um erro:", err);
@@ -76,7 +76,7 @@ descriptoBtn.addEventListener('click', (event) => {
         if (sectionMsgBtn) {
             sectionMsgBtn.addEventListener("click", async ()=> {
                 try {
-                    let copyText = document.querySelector('h2');
+                    let copyText = document.querySelector('h2.active');
                     await navigator.clipboard.writeText(copyText.textContent);
                 } catch (err) {
                     console.error("Ocorreu um erro:", err);
