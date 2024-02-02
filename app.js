@@ -13,62 +13,83 @@ criptoBtn.addEventListener('click', (event) => {
     let encryptedInput = encrypt();
     clearingElements()
     if (input.value !== ''){
-    // Criando elementos
-    let sectionMsgH2 = document.createElement('h2');
-    sectionMsgH2.textContent = encryptedInput;
-    let sectionMsgBtn = document.createElement('button');
-    sectionMsgBtn.innerHTML = 'Copiar';
+        // Criando elementos
+        let sectionMsgH2 = document.createElement('h2');
+        sectionMsgH2.textContent = encryptedInput;
+        let sectionMsgBtn = document.createElement('button');
+        sectionMsgBtn.innerHTML = 'Copiar';
 
-    // Configurando classes
-    sectionMsg.classList.remove('inactive');
-    sectionMsg.classList.add('active');
-    sectionMsgH2.classList.add('active');
-    sectionMsgBtn.classList.add('active')
-    
-    //Appending elementos
-    sectionMsg.appendChild(sectionMsgH2); 
-    sectionMsg.appendChild(sectionMsgBtn);
+        // Configurando classes
+        sectionMsg.classList.remove('inactive');
+        sectionMsg.classList.add('active');
+        sectionMsgH2.classList.add('active');
+        sectionMsgBtn.classList.add('copy');
+        sectionMsgBtn.classList.add('active');
+        
+        //Appending elementos
+        sectionMsg.appendChild(sectionMsgH2); 
+        sectionMsg.appendChild(sectionMsgBtn);
 
-    // Limpando input
-    input.value = '';
+        // Limpando input
+        input.value = '';
+
+        if (sectionMsgBtn) {
+            sectionMsgBtn.addEventListener("click", async ()=> {
+                try {
+                    let copyText = document.querySelector('h2');
+                    await navigator.clipboard.writeText(copyText.textContent);
+                } catch (err) {
+                    console.error("Ocorreu um erro:", err);
+                };
+            });
+        };
     } else {
-    sectionMsg.classList.remove('active');
-    sectionMsg.classList.add('inactive');
+        sectionMsg.classList.remove('active');
+        sectionMsg.classList.add('inactive');
     };
-
 });
 
 // Descriptografar
 descriptoBtn.addEventListener('click', (event) => {
     decryptInput = decrypt();
-    console.log(decryptInput);
     clearingElements()
     if (input.value !== ''){
-    // Criando elementos
-    let sectionMsgH2 = document.createElement('h2');
-    sectionMsgH2.textContent = decryptInput;
-    let sectionMsgBtn = document.createElement('button');
-    sectionMsgBtn.innerHTML = 'Copiar';
+        // Criando elementos
+        let sectionMsgH2 = document.createElement('h2');
+        sectionMsgH2.textContent = decryptInput;
+        let sectionMsgBtn = document.createElement('button');
+        sectionMsgBtn.innerHTML = 'Copiar';
 
-    // Configurando classes
-    sectionMsg.classList.remove('inactive');
-    sectionMsg.classList.add('active');
-    sectionMsgH2.classList.add('active');
-    sectionMsgBtn.classList.add('active')
-    
-    //Appending elementos
-    sectionMsg.appendChild(sectionMsgH2); 
-    sectionMsg.appendChild(sectionMsgBtn);
+        // Configurando classes
+        sectionMsg.classList.remove('inactive');
+        sectionMsg.classList.add('active');
+        sectionMsgH2.classList.add('active');
+        sectionMsgBtn.classList.add('active')
+        
+        //Appending elementos
+        sectionMsg.appendChild(sectionMsgH2); 
+        sectionMsg.appendChild(sectionMsgBtn);
 
-    // Limpando input
-    input.value = '';
+        // Limpando input
+        input.value = '';
+        
+        if (sectionMsgBtn) {
+            sectionMsgBtn.addEventListener("click", async ()=> {
+                try {
+                    let copyText = document.querySelector('h2');
+                    await navigator.clipboard.writeText(copyText.textContent);
+                } catch (err) {
+                    console.error("Ocorreu um erro:", err);
+                };
+            });
+        };
     } else {
-    sectionMsg.classList.remove('active');
-    sectionMsg.classList.add('inactive');
+        sectionMsg.classList.remove('active');
+        sectionMsg.classList.add('inactive');
     };
 });
 
-// Encriptando
+// Funções
 let encrypt = () => {
     const originalInput = input.value;
 
@@ -79,7 +100,6 @@ let encrypt = () => {
                         .replace(/a/g, 'ai');
 };
 
-// Descriptando
 let decrypt = () => {
     const originalInput = input.value;
 
@@ -90,7 +110,6 @@ let decrypt = () => {
                         .replace(/ufat/g, 'u');
 };
 
-// Clearing elemnts
 function clearingElements() {
     sectionMsg.querySelectorAll('.active').forEach(element => element.remove());
 };
