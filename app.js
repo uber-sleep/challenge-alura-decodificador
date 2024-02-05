@@ -12,7 +12,7 @@ let sectionMsg = htmlElemnts('#messages');
 criptoBtn.addEventListener('click', (event) => {
     let encryptedInput = encrypt();
     clearingElements()
-    if (input.value !== ''){
+    if (input.value !== '' && /^[a-z]*$/.test(input.value.normalize("NFD").replace(/[\u0300-\u036f]/g, ''))){
         // Criando elementos
         let sectionMsgH2 = document.createElement('h2');
         sectionMsgH2.textContent = encryptedInput;
@@ -46,6 +46,8 @@ criptoBtn.addEventListener('click', (event) => {
     } else {
         sectionMsg.classList.remove('active');
         sectionMsg.classList.add('inactive');
+
+        alert("Seu texto é inválido. Tente novamente.");
     };
 });
 
@@ -53,7 +55,7 @@ criptoBtn.addEventListener('click', (event) => {
 descriptoBtn.addEventListener('click', (event) => {
     decryptInput = decrypt();
     clearingElements()
-    if (input.value !== ''){
+    if (input.value !== '' && /^[a-z]*$/.test(input.value.normalize("NFD").replace(/[\u0300-\u036f]/g, ''))){
         // Criando elementos
         let sectionMsgH2 = document.createElement('h2');
         sectionMsgH2.textContent = decryptInput;
@@ -64,6 +66,7 @@ descriptoBtn.addEventListener('click', (event) => {
         sectionMsg.classList.remove('inactive');
         sectionMsg.classList.add('active');
         sectionMsgH2.classList.add('active');
+        sectionMsgBtn.classList.add('copy');
         sectionMsgBtn.classList.add('active')
         
         //Appending elementos
@@ -86,6 +89,8 @@ descriptoBtn.addEventListener('click', (event) => {
     } else {
         sectionMsg.classList.remove('active');
         sectionMsg.classList.add('inactive');
+
+        alert("Seu texto é inválido. Tente novamente.");
     };
 });
 
