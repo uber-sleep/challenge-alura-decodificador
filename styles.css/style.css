@@ -222,5 +222,6 @@ button.active {
     section#messages.inactive {
         background-image: url('../assets/High\ quality\ products\ 1\ 1.svg');
         background-repeat: no-repeat;
+        background-position-x: center;
     }
 }
